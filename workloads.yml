@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: education
+spec:
+  selector:
+    matchLabels:
+      app: education
+  replicas: 1
+  template: #template for the pods
+    metadata:
+      labels:
+        app: education
+    spec:
+      containers:
+        - name: education
+          image: rezacomplete/education
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
