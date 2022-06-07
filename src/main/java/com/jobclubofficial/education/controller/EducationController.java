@@ -15,8 +15,8 @@ public class EducationController {
     @Autowired
     private EducationService educationService;
 
-    @GetMapping("/users/{username}/educations")
-    public List<Education> getAllEducation(@PathVariable String username) {
-        return educationService.getAllEducations(username);
+    @GetMapping("/users/{username}/education")
+    public Education getAllEducation(@PathVariable String username) {
+        return educationService.getAllEducations(username).get(0);
     }
 }
